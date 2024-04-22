@@ -1,0 +1,61 @@
+{% include 'header.html' %}
+
+<style>
+    .card {
+        height: 100%;
+        /* Menetapkan tinggi tetap untuk setiap kartu */
+    }
+
+    .card-img-top {
+        height: 50%;
+        /* Mengatur tinggi gambar agar hanya mengambil setengah dari ketinggian kartu */
+        object-fit: cover;
+        /* Memastikan gambar diatur dengan rapi */
+    }
+
+    .card-body {
+        height: 50%;
+        /* Mengatur tinggi bagian tubuh kartu agar hanya mengambil setengah dari ketinggian kartu */
+        overflow: auto;
+        /* Menambahkan scrollbar jika deskripsi terlalu panjang */
+    }
+</style>
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Dashboard</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        <!-- looping --->
+        {% for item in food %}
+
+        <div class="col">
+            <div class="card">
+                <img src="../static/assets/imgFruit/{{item.gambar}}" class="card-img-top"
+                    alt="Hollywood Sign on The Hill" />
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <h5 class="card-title">{{item.nama}}</h5>
+                        <h5 class="card-title" style="color: brown;">{{item.harga}}</h5>
+                    </div>
+                    <p class="card-text">
+                        {{item.deskripsi}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <!-- looping --->
+
+    </div>
+</main>
+{% include 'footer.html' %}
