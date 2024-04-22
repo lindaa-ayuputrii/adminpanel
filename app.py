@@ -53,7 +53,7 @@ def addFood():
         }
         db.food.insert_one(doc)
         return redirect(url_for('food'))
-    return render_template('addFood.html')
+    return render_template('AddFood.html')
 
 @app.route('/editFood/<_id>',methods=['GET','POST'])
 def editFood(_id):
